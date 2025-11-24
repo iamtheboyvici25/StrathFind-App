@@ -11,13 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Users', function (Blueprint $table) {
-            $table->id()->primary();
+        if (Schema::hasTable('users')) {
+            // Core users table is already created by the default Laravel migration.
+            return;
+        }
+
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->bigInteger('role_id');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -27,6 +32,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Users');
+        if (Schema::hasTable('users')) {
+            Schema::dropIfExists('users');
+        }
     }
 };
