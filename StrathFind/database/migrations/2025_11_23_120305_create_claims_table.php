@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('claims', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')->constrained()->onDelete('cascade'); // FK to lost_items
+            $table->foreignId('item_id')->constrained('lost_items')->onDelete('cascade'); // FK to lost_items
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // FK to users
             $table->string('status')->default('pending');
             $table->text('description')->nullable();
