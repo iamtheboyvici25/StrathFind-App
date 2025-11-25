@@ -8,12 +8,22 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
+<<<<<<< HEAD
+=======
+        "laravel/sanctum": "^4.0",
+>>>>>>> 6ff1f53 (Initial commit - my version)
         "laravel/tinker": "^2.10.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+<<<<<<< HEAD
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
+=======
+        "laravel/breeze": "^2.3",
+        "laravel/pail": "^1.2.2",
+        "laravel/pint": "^1.13",
+>>>>>>> 6ff1f53 (Initial commit - my version)
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
@@ -32,6 +42,7 @@
         }
     },
     "scripts": {
+<<<<<<< HEAD
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
@@ -48,6 +59,8 @@
             "@php artisan config:clear --ansi",
             "@php artisan test"
         ],
+=======
+>>>>>>> 6ff1f53 (Initial commit - my version)
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -63,8 +76,18 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
+<<<<<<< HEAD
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+=======
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+>>>>>>> 6ff1f53 (Initial commit - my version)
         ]
     },
     "extra": {
